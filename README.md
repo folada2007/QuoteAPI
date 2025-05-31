@@ -28,10 +28,13 @@
    ```bash
    git clone https://github.com/yourusername/QuotesAPI.git
    cd QuotesAPI
+   ```
    
 2. Запустите сервер:
    ```bash
    go run cmd/main.go
+   ```
+   
 3. Сервер будет доступен по адресу: http://localhost:8080
    
 ---
@@ -45,4 +48,38 @@
   - Получение случайной цитаты : curl http://localhost:8080/quotes/random
   - Получение цитат по автору : curl http://localhost:8080/quotes?author=Confucius
   - Удаление цитаты по ID : curl -X DELETE http://localhost:8080/quotes/1
+
+---
+
+## Генерация уникальных ID
+Для генерации уникальных идентификаторов цитат используется внутренний пакет idGen:
+
+```go
+package idGen
+
+import "sync/atomic"
+
+var counter int64
+
+var NextID = func() int64 {
+	return atomic.AddInt64(&counter, 1)
+}
+```
+Каждой новой цитате присваивается уникальный ID путём атомарного увеличения счётчика.
+
+---
+
+## Тестирование
+- Запуск unit-тестов:
+```bash
+go test ./...
+```
+Покрытие тестов :
+- Добавление новой цитаты (POST /quotes)
+
+- Получение всех цитат (GET /quotes)
+
+- Получение случайной цитаты (GET /quotes/random)
+
+- Удаление цитаты (DELETE /quotes/{id})
 
