@@ -26,7 +26,7 @@
 
 1. Склонируйте репозиторий:
    ```bash
-   git clone https://github.com/yourusername/QuoteAPI.git
+   git clone https://github.com/folada2007/QuoteAPI.git
    cd QuoteAPI
    ```
    
