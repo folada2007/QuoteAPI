@@ -26,8 +26,8 @@
 
 1. Склонируйте репозиторий:
    ```bash
-   git clone https://github.com/yourusername/QuotesAPI.git
-   cd QuotesAPI
+   git clone https://github.com/yourusername/QuoteAPI.git
+   cd QuoteAPI
    ```
    
 2. Запустите сервер:
